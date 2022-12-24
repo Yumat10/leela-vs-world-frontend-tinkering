@@ -1,5 +1,5 @@
 {
-  "name": "group-msg-website",
+  "name": "nextjs-tailwind-boilerplate",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -23,6 +23,8 @@
   "devDependencies": {
     "autoprefixer": "^10.4.13",
     "postcss": "^8.4.19",
+    "prettier": "^2.8.1",
+    "prettier-plugin-tailwindcss": "^0.2.1",
     "tailwindcss": "^3.2.4"
   }
 }
