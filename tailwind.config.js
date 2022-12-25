@@ -28,12 +28,19 @@ module.exports = {
         'width-clamp': 'calc((100% - var(--width-clamp)) / 2)',
       },
       colors: {
+        'emerald-green': 'var(--emerald-green)',
         'off-black': 'var(--off-black)',
         'off-white': 'var(--off-white)',
         gray: 'var(--gray)',
         'light-gray': 'var(--light-gray)',
         'dark-gray': 'var(--dark-gray)',
         'error-color': 'var(--error-color)',
+      },
+      gridTemplateRows: {
+        8: 'repeat(8, minmax(0, 8fr))',
+      },
+      gridRowStart: {
+        8: '8',
       },
     },
   },

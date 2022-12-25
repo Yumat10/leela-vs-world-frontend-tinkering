@@ -24,7 +24,7 @@ export const MediaQueryContextProvider = ({
 }: {
   children: ReactNode;
 }) => {
-  const isDesktop = useMediaQuery({ query: '(max-width: 1460px)' });
+  const isDesktop = useMediaQuery({ query: '(max-width: 1750px)' });
   const isLaptop = useMediaQuery({ query: '(max-width: 1024px)' });
   const isTablet = useMediaQuery({ query: '(max-width: 768px)' });
   const isMobile = useMediaQuery({ query: '(max-width: 480px)' });
