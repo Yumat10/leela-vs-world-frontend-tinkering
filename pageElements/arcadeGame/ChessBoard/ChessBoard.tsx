@@ -80,7 +80,7 @@ export const ChessBoard: FC = () => {
       newCurrChessBoard[chessPieceNum as ChessPiece] = chosenChessPiece;
       setCurrChessBoard({ ...newCurrChessBoard });
       setTurnNum(turnNum + 1);
-    }, 100);
+    }, 250);
 
     return () => clearInterval(movePawnInterval);
   });
