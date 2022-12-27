@@ -1,3 +1,5 @@
+import { BigNumber } from 'ethers';
+
 export type ChessRow = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
 
 export type ChessColumn = 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G' | 'H';
@@ -42,3 +44,13 @@ export type ChessBoardData = Record<
   ChessPiece,
   { row: ChessRow; column: ChessColumn }
 >;
+
+export enum ChessPlayer {
+  'LEELA' = 'Leela',
+  'WORLD' = 'World',
+}
+
+export interface ChessMoveBet {
+  move: string;
+  amount: BigNumber;
+}

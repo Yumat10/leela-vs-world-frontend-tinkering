@@ -3,18 +3,19 @@ import { motion, Variants } from 'framer-motion';
 import clsx from 'clsx';
 import { RetroButton } from './RetroButton';
 import { RetroDropdown } from './RetroDropdown';
+import { useBettingContext } from '../../../contexts/BettingContext';
+import { ChessPlayer } from '../../../types/Chess.type';
 
 export const VotingPanel: FC = () => {
-  const [playerOption, setPlayerOption] = useState<'Leela' | 'World'>('Leela');
+  const {
+    playerOption,
+    setPlayerOption,
+    validMoves,
+    selectedMoveIndex,
+    setSelectedMoveIndex,
+  } = useBettingContext();
 
-  enum MoveOptions {
-    'Rdf8',
-    'Qh4e1',
-    'Bxe5',
-    'Nf3',
-  }
-
-  const [moveOptionIndex, setMoveOptionIndex] = useState(0);
+  if (validMoves.length === 0) return null;
 
   return (
     <div className="relative h-40 w-full bg-[url(/VotingDisplay.svg)] bg-contain bg-no-repeat">
@@ -22,15 +23,19 @@ export const VotingPanel: FC = () => {
         <RetroDropdown
           text={playerOption}
           onClick={() => {
-            setPlayerOption(playerOption === 'Leela' ? 'World' : 'Leela');
+            setPlayerOption(
+              playerOption === ChessPlayer.LEELA
+                ? ChessPlayer.WORLD
+                : ChessPlayer.LEELA
+            );
           }}
         />
       </div>
       <div className="absolute right-12 top-2">
         <RetroDropdown
-          text={MoveOptions[moveOptionIndex]}
+          text={validMoves[selectedMoveIndex].move}
           onClick={() => {
-            setMoveOptionIndex((moveOptionIndex + 1) % 4);
+            setSelectedMoveIndex((selectedMoveIndex + 1) % validMoves.length);
           }}
         />
       </div>

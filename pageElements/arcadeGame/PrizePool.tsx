@@ -1,9 +1,9 @@
-import { FC, useEffect, useState } from 'react';
+import { FC } from 'react';
 import { motion } from 'framer-motion';
-import { useArcadeMachineContext } from '../../contexts/ArcadeMachineContext';
+import { useBettingContext } from '../../contexts/BettingContext';
 
 export const PrizePool: FC = () => {
-  const { prizePoolAmount, MAX_PRIZE_POOL } = useArcadeMachineContext();
+  const { prizePoolAmount, MAX_PRIZE_POOL } = useBettingContext();
 
   return (
     <div className="relative h-full w-full bg-[url(/PrizePoolDisplay.svg)] bg-contain bg-no-repeat">

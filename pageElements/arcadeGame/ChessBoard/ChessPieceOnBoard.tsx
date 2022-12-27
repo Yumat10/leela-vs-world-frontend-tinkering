@@ -1,10 +1,6 @@
 import clsx from 'clsx';
 import { FC } from 'react';
-import {
-  ChessRow,
-  ChessColumn,
-  ChessPiece,
-} from '../../../types/ChessBoard.type';
+import { ChessRow, ChessColumn, ChessPiece } from '../../../types/Chess.type';
 
 type ChessPieceOnBoardProps = {
   chessPiece: ChessPiece;

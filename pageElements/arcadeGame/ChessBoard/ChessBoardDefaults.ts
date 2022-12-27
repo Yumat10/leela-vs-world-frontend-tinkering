@@ -1,4 +1,4 @@
-import { ChessBoardData, ChessPiece } from '../../../types/ChessBoard.type';
+import { ChessBoardData, ChessPiece } from '../../../types/Chess.type';
 
 export const BOARD_0: ChessBoardData = {
   [ChessPiece.B_ROOK_0]: {
