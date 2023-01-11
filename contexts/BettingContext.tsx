@@ -80,7 +80,6 @@ export const BettingContextProvider = ({
           amount: ethers.utils.parseEther('0.2'),
         },
       ];
-      console.log('newValidMoves: ', newValidMoves);
       setValidMoves([...newValidMoves]);
       setInitialValidMovesIsSet(true);
     } catch (error) {
