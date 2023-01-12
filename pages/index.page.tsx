@@ -44,6 +44,11 @@ export default function Home() {
           </div>
 
           <div className="relative mx-auto mt-[100px] grid h-[775px] w-[1375px] grid-cols-2 gap-x-10 px-10 py-5">
+            {showGameDetails && (
+              <div className="absolute top-0 bottom-0 left-0 right-0 z-50 flex flex-row items-center justify-center bg-black bg-opacity-70">
+                <GameDetails />
+              </div>
+            )}
             <div className="col-span-1">
               <div className="mb-[12px] h-[133px]">
                 <NextMoveTimer />
