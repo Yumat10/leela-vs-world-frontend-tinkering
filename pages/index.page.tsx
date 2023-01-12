@@ -45,17 +45,19 @@ export default function Home() {
 
           <div className="relative mx-auto mt-[100px] grid h-[775px] w-[1375px] grid-cols-2 gap-x-10 px-10 py-5">
             <div className="col-span-1">
-              <div className="h-[133px]">
+              <div className="mb-[12px] h-[133px]">
                 <NextMoveTimer />
               </div>
               {/* <ChessBoard /> */}
             </div>
             <div className="col-span-1">
-              <div className="h-[133px]">
+              <div className="mb-[20px] h-[125px]">
                 <PrizePool />
               </div>
-              {/* <NextMoveLeaderboard />
-              <VotingPanel /> */}
+              <div className="flex h-[265px]">
+                <NextMoveLeaderboard />
+              </div>
+              {/* <VotingPanel /> */}
             </div>
           </div>
         </foreignObject>
