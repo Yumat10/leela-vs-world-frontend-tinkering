@@ -47,7 +47,7 @@ export const GameDetails: FC = () => {
 
   return (
     <GamePopup onClick={() => setShowGameDetails(false)}>
-      <div className="px-[107.5px]">
+      <div className="mx-[107.5px]">
         <div className="relative mx-auto flex h-[230px] w-full flex-col bg-[url(/CurrentPrizePoolDisplay.svg)] bg-contain bg-no-repeat">
           <div className="ml-[350px] mt-[80px] mr-[30px] flex flex-col text-4xl">
             <div className="flex h-[50px] flex-row items-center border-2 border-off-white px-[15px] text-off-white">
