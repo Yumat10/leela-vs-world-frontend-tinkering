@@ -6,7 +6,7 @@ export const PrizePool: FC = () => {
   const { prizePoolAmount, MAX_PRIZE_POOL } = useBettingContext();
 
   return (
-    <div className="relative h-full w-full bg-[url(/PrizePoolDisplay.svg)] bg-contain bg-no-repeat text-5xl">
+    <div className="relative h-full w-full bg-[url(/PrizePoolDisplay.svg)] bg-contain bg-no-repeat text-4xl">
       <p className="absolute left-[325px] top-[20px]  bg-transparent font-bold">
         {prizePoolAmount.toFixed(1)} ETH
       </p>

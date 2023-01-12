@@ -50,14 +50,16 @@ export default function Home() {
               </div>
               {/* <ChessBoard /> */}
             </div>
-            <div className="col-span-1">
+            <div className="col-span-1 flex flex-col">
               <div className="mb-[20px] h-[125px]">
                 <PrizePool />
               </div>
               <div className="flex h-[265px]">
                 <NextMoveLeaderboard />
               </div>
-              {/* <VotingPanel /> */}
+              <div className="flex-grow">
+                <VotingPanel />
+              </div>
             </div>
           </div>
         </foreignObject>
