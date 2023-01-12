@@ -39,8 +39,24 @@ export default function Home() {
             className="z-0 object-contain"
           />
 
-          <div className="mx-auto mt-5 h-[150px] w-[1550px]">
+          <div className="mx-auto mt-[15px] h-[150px] w-[1550px]">
             <ArcadeHeader />
+          </div>
+
+          <div className="relative mx-auto mt-[100px] grid h-[775px] w-[1375px] grid-cols-2 gap-x-10 px-10 py-5">
+            <div className="col-span-1">
+              <div className="h-full">
+                <NextMoveTimer />
+              </div>
+              {/* <ChessBoard /> */}
+            </div>
+            {/* <div className="col-span-1">
+              <div className="h-20">
+                <PrizePool />
+              </div>
+              <NextMoveLeaderboard />
+              <VotingPanel />
+            </div> */}
           </div>
         </foreignObject>
       </svg>
