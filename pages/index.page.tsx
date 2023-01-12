@@ -45,18 +45,18 @@ export default function Home() {
 
           <div className="relative mx-auto mt-[100px] grid h-[775px] w-[1375px] grid-cols-2 gap-x-10 px-10 py-5">
             <div className="col-span-1">
-              <div className="h-full">
+              <div className="h-[133px]">
                 <NextMoveTimer />
               </div>
               {/* <ChessBoard /> */}
             </div>
-            {/* <div className="col-span-1">
-              <div className="h-20">
+            <div className="col-span-1">
+              <div className="h-[133px]">
                 <PrizePool />
               </div>
-              <NextMoveLeaderboard />
-              <VotingPanel />
-            </div> */}
+              {/* <NextMoveLeaderboard />
+              <VotingPanel /> */}
+            </div>
           </div>
         </foreignObject>
       </svg>
