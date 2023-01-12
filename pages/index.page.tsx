@@ -72,6 +72,14 @@ export default function Home() {
               </div>
             </div>
           </div>
+
+          <div className="mx-auto mt-[20px] h-[70px] w-[1475px]">
+            <CreatedByModulousLabs />
+          </div>
+
+          <div className="mx-auto mt-[-90px] h-[220px] w-[1375px]">
+            <ArcadeControls />
+          </div>
         </foreignObject>
       </svg>
     </div>
