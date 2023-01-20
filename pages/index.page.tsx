@@ -12,8 +12,6 @@ import { ArcadeControls } from '../pageElements/arcadeGame/ArcadeControls';
 import { CreatedByModulousLabs } from '../pageElements/arcadeGame/CreatedByModulousLabs';
 import { useMediaQueryContext } from '../contexts/MediaQueryContext';
 import { ScreenTooSmall } from '../pageElements/ScreenTooSmall';
-import { ConnectButton } from '@rainbow-me/rainbowkit';
-import { useChessGameContext } from '../contexts/ChessGameContext';
 
 export default function Home() {
   const { isMobile } = useMediaQueryContext();

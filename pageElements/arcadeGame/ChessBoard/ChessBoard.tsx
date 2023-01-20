@@ -1,9 +1,6 @@
-import clsx from 'clsx';
-import { motion, Variants } from 'framer-motion';
+// import { motion, Variants } from 'framer-motion';
 import Image from 'next/image';
-import { FC, MouseEventHandler, useEffect, useState } from 'react';
-import { useChessGameContext } from '../../../contexts/ChessGameContext';
-import { BOARD_0, BOARD_1 } from './ChessBoardDefaults';
+import { FC } from 'react';
 import { SquaresOverlay } from './SquaresOverlay';
 
 // const ButtonVariants: Variants = {
