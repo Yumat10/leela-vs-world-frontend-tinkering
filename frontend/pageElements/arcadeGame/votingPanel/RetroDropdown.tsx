@@ -24,7 +24,7 @@ export const RetroDropdown: FC<RetroDropdownProps> = ({ text, onClick }) => {
       initial="initial"
       whileTap="tap"
       onClick={onClick}
-      className="h-[40px] w-[140px] bg-[url(/RetroDropdown.svg)] bg-contain bg-no-repeat pl-[10px] pr-[35px] text-left text-3xl"
+      className="flex h-[30px] w-[105px] bg-[url(/RetroDropdown.svg)] bg-contain bg-no-repeat pl-[10px] pr-[25px] text-left text-xl"
     >
       {text}
     </motion.button>

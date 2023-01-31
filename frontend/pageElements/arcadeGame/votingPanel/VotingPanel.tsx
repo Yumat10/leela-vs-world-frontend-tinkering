@@ -19,7 +19,7 @@ export const VotingPanel: FC = () => {
 
   return (
     <div className="relative h-full w-full bg-[url(/VotingDisplay.svg)] bg-contain bg-bottom bg-no-repeat">
-      <div className="absolute left-[180px] bottom-[247.5px]">
+      <div className="absolute left-[127.5px] top-[12.5px]">
         <RetroDropdown
           text={playerOption}
           onClick={() => {
@@ -31,7 +31,7 @@ export const VotingPanel: FC = () => {
           }}
         />
       </div>
-      <div className="absolute right-[100px] bottom-[247.5px]">
+      <div className="absolute right-[67.5px] top-[12.5px]">
         <RetroDropdown
           text={validMoves[selectedMoveIndex].move}
           onClick={() => {
@@ -39,8 +39,8 @@ export const VotingPanel: FC = () => {
           }}
         />
       </div>
-      <div className="absolute bottom-[20px] left-[0px] right-[0px] flex flex-col items-center gap-y-3">
-        <div className="h-[45px] w-[545px]">
+      <div className="absolute bottom-[10px] left-[0px] right-[0px] flex flex-col items-center gap-y-[7.5px]">
+        <div className="h-[33px] w-[400px]">
           <RetroButton
             buttonImageUrl="bg-[url(/SubmitMoveButton.svg)]"
             onClick={() => {
@@ -48,7 +48,7 @@ export const VotingPanel: FC = () => {
             }}
           />
         </div>
-        <div className="h-[45px] w-[545px]">
+        <div className="h-[33px] w-[400px]">
           <RetroButton
             buttonImageUrl="bg-[url(/BuyPowerButton.svg)]"
             onClick={() => {
@@ -56,7 +56,7 @@ export const VotingPanel: FC = () => {
             }}
           />
         </div>
-        <div className="h-[45px] w-[545px]">
+        <div className="h-[33px] w-[400px]">
           <RetroButton
             buttonImageUrl="bg-[url(/ConnectWalletButton.svg)]"
             onClick={() => {
