@@ -37,7 +37,7 @@ export default function Home() {
               {/* <ArcadeHeader /> */}
             </div>
 
-            <div className="relative mx-auto mt-[65px] grid h-[590px] w-[1025px] grid-cols-2 gap-x-10 px-[30px] py-[30px]">
+            <div className="relative mx-auto mt-[65px] grid h-[590px] w-[1025px] grid-cols-2 gap-x-[30px] px-[30px] py-[30px]">
               {!showGameInstructions && showGameDetails && (
                 <div className="absolute top-0 bottom-0 left-0 right-0 z-50 flex flex-row items-center justify-center bg-black bg-opacity-70">
                   <GameDetails />
@@ -50,15 +50,15 @@ export default function Home() {
               )}
 
               <div className="col-span-1 flex flex-col justify-between">
-                <div className="flex h-[95px]">
+                <div className="h-[96px]">
                   <NextMoveTimer />
                 </div>
                 <div className="h-[400px] w-[400px] self-end">
                   <ChessBoard />
                 </div>
               </div>
-              {/* <div className="col-span-1 flex flex-col">
-                <div className="mb-[20px] h-[125px]">
+              <div className="col-span-1 flex flex-col">
+                <div className="mb-[20px] flex h-[91px]">
                   <PrizePool />
                 </div>
                 <div className="flex h-[265px]">
@@ -67,7 +67,7 @@ export default function Home() {
                 <div className="flex-grow">
                   <VotingPanel />
                 </div>
-              </div> */}
+              </div>
             </div>
 
             {/* <div className="mx-auto mt-[20px] h-[70px] w-[1475px]">

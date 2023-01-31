@@ -116,7 +116,7 @@ export const BettingContextProvider = ({
   // Placeholder to simulate changing prize pool amount
   useEffect(() => {
     const prizePoolIncrmementor = setInterval(() => {
-      setPrizePoolAmount((amount) => (amount >= 10 ? 2 : amount + 0.2));
+      setPrizePoolAmount((amount) => (amount >= 10 ? 2 : amount + 0.5));
     }, 500);
     return () => clearInterval(prizePoolIncrmementor);
   }, []);
