@@ -17,9 +17,9 @@ export const NextMoveTimer: FC = () => {
   };
 
   return (
-    <div className="relative grid h-full w-full grid-cols-12 items-center bg-[url(/NextMoveTimer.svg)] bg-contain bg-no-repeat px-[45px] pt-[60px] pb-[20px] text-4xl">
+    <div className="relative grid h-full w-full grid-cols-12 items-center bg-[url(/NextMoveTimer.svg)] bg-contain bg-no-repeat px-[32.5px] pt-[42.5px] pb-[20px] text-4xl">
       <p className="col-span-5 w-fit">{prevMove}</p>
-      <p className="col-span-7 w-fit pl-[25px]">{formattedTimeToNextMove()}</p>
+      <p className="col-span-7 w-fit pl-[20px]">{formattedTimeToNextMove()}</p>
     </div>
   );
 };
