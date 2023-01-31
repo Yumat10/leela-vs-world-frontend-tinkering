@@ -20,15 +20,13 @@ export const GameInstructions: FC = () => {
 
   return (
     <GamePopup onClick={() => setShowGameInstructions(false)}>
-      <div className="mx-[40px]">
-        <div className="relative mx-auto h-[565px] w-full bg-[url(/HowDoesLeelaVsWorldWorkDisplay.svg)] bg-contain bg-no-repeat px-[50px] pt-[130px]">
-          <p className="text-3xl text-off-white">
-            This is how Leela VS World ACTUALY works...
-            <br />
-            <br />A man named Jongwon is planning a back-door function to steal
-            your money. Run NOW, while you can!🏃‍♀️
-          </p>
-        </div>
+      <div className="relative mx-auto flex h-[345px] w-full bg-[url(/HowDoesLeelaVsWorldWorkDisplay.svg)] bg-contain bg-no-repeat px-[30px] pt-[80px] pb-[30px]">
+        <p className="text-xl text-off-white">
+          This is how Leela VS World ACTUALY works...
+          <br />
+          <br />A man named Jongwon is planning a back-door function to steal
+          your money. Run NOW, while you can!🏃‍♀️
+        </p>
       </div>
     </GamePopup>
   );

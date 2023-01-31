@@ -14,6 +14,18 @@ const ButtonVariants: Variants = {
   },
 };
 
+const OpacityButtonVariants: Variants = {
+  initial: {
+    opacity: 0,
+  },
+  tap: {
+    opacity: 1,
+    transition: {
+      duration: 0.1,
+    },
+  },
+};
+
 type HeaderButtonProps = {
   children: ReactNode;
   onClick: MouseEventHandler<HTMLButtonElement>;
@@ -36,9 +48,31 @@ const HeaderButton: FC<HeaderButtonProps> = ({ children, onClick }) => {
 export const ArcadeHeader: FC = () => {
   const { setShowGameDetails } = useArcadeMachineContext();
 
+  const OpacityButton = (onClick: MouseEventHandler<HTMLButtonElement>) => {
+    return (
+      <motion.button
+        variants={OpacityButtonVariants}
+        initial="initial"
+        whileTap="tap"
+        onClick={onClick}
+        className="mt-[22.5px] flex h-[160px] w-[227.5px] rounded-3xl bg-black/50"
+      />
+    );
+  };
+
   return (
-    <div className="flex h-[inherit] w-full flex-row justify-between gap-x-10">
-      <HeaderButton onClick={() => setShowGameDetails(true)}>
+    <div className="flex h-[inherit] w-full flex-row justify-between px-[40px]">
+      <a>{OpacityButton(() => setShowGameDetails(true))}</a>
+      <a
+        href={process.env.NEXT_PUBLIC_DISCORD_LINK!}
+        target="_blank"
+        rel="no-referrer"
+      >
+        {OpacityButton(() => {
+          console.log('Strategize on Discord');
+        })}
+      </a>
+      {/* <HeaderButton onClick={() => setShowGameDetails(true)}>
         <Image priority fill src="/WhatsThisButton.svg" alt="What's This?" />
       </HeaderButton>
       <div className="relative h-full w-full flex-grow">
@@ -58,7 +92,7 @@ export const ArcadeHeader: FC = () => {
             alt="Strategize On Discord"
           />
         </a>
-      </HeaderButton>
+      </HeaderButton> */}
     </div>
   );
 };

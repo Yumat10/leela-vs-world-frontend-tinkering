@@ -12,6 +12,7 @@ import { ArcadeControls } from '../pageElements/arcadeGame/ArcadeControls';
 import { CreatedByModulousLabs } from '../pageElements/arcadeGame/CreatedByModulousLabs';
 import { useMediaQueryContext } from '../contexts/MediaQueryContext';
 import { ScreenTooSmall } from '../pageElements/ScreenTooSmall';
+import { AnimatePresence } from 'framer-motion';
 
 export default function Home() {
   const { isMobile } = useMediaQueryContext();
@@ -33,21 +34,23 @@ export default function Home() {
             className="pointer-events-none z-10 object-contain"
           />
           <div className="z-0 -ml-[25px]">
-            <div className="mx-auto mt-0 flex h-[230px] w-[1375px]">
-              {/* <ArcadeHeader /> */}
+            <div className="mx-auto mt-0 h-[230px] w-[1375px]">
+              <ArcadeHeader />
             </div>
 
             <div className="relative mx-auto mt-[65px] grid h-[590px] w-[1025px] grid-cols-2 gap-x-[50px] px-[30px] py-[30px]">
-              {!showGameInstructions && showGameDetails && (
-                <div className="absolute top-0 bottom-0 left-0 right-0 z-50 flex flex-row items-center justify-center bg-black bg-opacity-70">
-                  <GameDetails />
-                </div>
-              )}
-              {showGameInstructions && (
-                <div className="absolute top-0 bottom-0 left-0 right-0 z-50 flex flex-row items-center justify-center bg-black bg-opacity-70">
-                  <GameInstructions />
-                </div>
-              )}
+              <AnimatePresence>
+                {!showGameInstructions && showGameDetails && (
+                  <div className="absolute top-0 bottom-0 left-0 right-0 z-50 flex flex-row items-center justify-center rounded-3xl bg-black bg-opacity-70">
+                    <GameDetails />
+                  </div>
+                )}
+                {showGameInstructions && (
+                  <div className="absolute top-0 bottom-0 left-0 right-0 z-50 flex flex-row items-center justify-center bg-black bg-opacity-70">
+                    <GameInstructions />
+                  </div>
+                )}
+              </AnimatePresence>
 
               <div className="col-span-1 flex flex-col justify-between">
                 <div className="h-[96px]">
