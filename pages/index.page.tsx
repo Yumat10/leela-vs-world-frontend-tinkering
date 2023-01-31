@@ -58,10 +58,10 @@ export default function Home() {
                 </div>
               </div>
               <div className="col-span-1 flex flex-col">
-                <div className="mb-[20px] flex h-[91px]">
+                <div className="mb-[37.5px] flex h-[91px]">
                   <PrizePool />
                 </div>
-                <div className="flex h-[265px]">
+                <div className="flex h-[193px]">
                   <NextMoveLeaderboard />
                 </div>
                 <div className="flex-grow">
