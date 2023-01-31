@@ -30,9 +30,9 @@ export default function Home() {
             fill
             src="/ArcadeMachine.gif"
             alt="arcade-machine"
-            className="z-0 object-contain"
+            className="pointer-events-none z-10 object-contain"
           />
-          <div className="-ml-[25px]">
+          <div className="z-0 -ml-[25px]">
             <div className="mx-auto mt-0 flex h-[230px] w-[1375px]">
               {/* <ArcadeHeader /> */}
             </div>

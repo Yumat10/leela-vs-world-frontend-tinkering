@@ -32,11 +32,11 @@ export const ValidMoveOverlay: FC<ValidMoveOverlayProps> = ({
     <div
       className="absolute cursor-pointer"
       style={{
-        left: 35 + x * 71,
-        top: y * 71,
+        left: 24 + x * 47,
+        top: y * 47,
       }}
     >
-      <div className="relative h-[65px] w-[65px]">
+      <div className="relative h-[47px] w-[47px]">
         <Image
           src={`/chessPieces/${piece.type}${piece.color}.svg`}
           alt=""
