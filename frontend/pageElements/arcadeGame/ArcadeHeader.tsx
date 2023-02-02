@@ -1,15 +1,15 @@
-import { motion, Variants } from 'framer-motion';
-import Image from 'next/image';
-import { FC, MouseEventHandler, ReactNode } from 'react';
-import { useArcadeMachineContext } from '../../contexts/ArcadeMachineContext';
+import { motion, Variants } from "framer-motion";
+import Image from "next/image";
+import { FC, MouseEventHandler, ReactNode } from "react";
+import { useArcadeMachineContext } from "../../contexts/ArcadeMachineContext";
 
 const ButtonVariants: Variants = {
   initial: {
-    filter: 'brightness(100%)',
+    filter: "brightness(100%)",
     scale: 1,
   },
   tap: {
-    filter: 'brightness(85%)',
+    filter: "brightness(85%)",
     scale: 0.975,
   },
 };
@@ -46,7 +46,7 @@ const HeaderButton: FC<HeaderButtonProps> = ({ children, onClick }) => {
 };
 
 export const ArcadeHeader: FC = () => {
-  const { setShowGameDetails } = useArcadeMachineContext();
+  const { setShowGameInstructions } = useArcadeMachineContext();
 
   const OpacityButton = (onClick: MouseEventHandler<HTMLButtonElement>) => {
     return (
@@ -62,14 +62,14 @@ export const ArcadeHeader: FC = () => {
 
   return (
     <div className="flex h-[inherit] w-full flex-row justify-between px-[40px]">
-      <a>{OpacityButton(() => setShowGameDetails(true))}</a>
+      <a>{OpacityButton(() => setShowGameInstructions(true))}</a>
       <a
         href={process.env.NEXT_PUBLIC_DISCORD_LINK!}
         target="_blank"
         rel="no-referrer"
       >
         {OpacityButton(() => {
-          console.log('Strategize on Discord');
+          console.log("Strategize on Discord");
         })}
       </a>
       {/* <HeaderButton onClick={() => setShowGameDetails(true)}>

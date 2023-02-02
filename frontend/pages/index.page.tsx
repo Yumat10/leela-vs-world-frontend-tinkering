@@ -88,7 +88,7 @@ export default function HomePage() {
         variants={BackgroundImageVariants}
         initial="initial"
         animate={startNavigationSequence ? "zoom" : "initial"}
-        className="fixed z-0 h-full w-full"
+        className="fixed h-full w-full"
       >
         <Image
           src="/AllArcadeMachines.gif"

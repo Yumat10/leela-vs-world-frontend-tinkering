@@ -1,12 +1,14 @@
-import { FC, MouseEventHandler, useState } from 'react';
-import { motion, Variants } from 'framer-motion';
-import clsx from 'clsx';
-import { RetroButton } from './RetroButton';
-import { RetroDropdown } from './RetroDropdown';
-import { useBettingContext } from '../../../contexts/BettingContext';
-import { CHESS_PLAYER } from '../../../types/Chess.type';
+import { FC, MouseEventHandler, useState } from "react";
+import { motion, Variants } from "framer-motion";
+import clsx from "clsx";
+import { RetroButton } from "./RetroButton";
+import { RetroDropdown } from "./RetroDropdown";
+import { useBettingContext } from "../../../contexts/BettingContext";
+import { CHESS_PLAYER } from "../../../types/Chess.type";
+import { useArcadeMachineContext } from "../../../contexts/ArcadeMachineContext";
 
 export const VotingPanel: FC = () => {
+  const { setShowGameDetails } = useArcadeMachineContext();
   const {
     playerOption,
     setPlayerOption,
@@ -44,7 +46,7 @@ export const VotingPanel: FC = () => {
           <RetroButton
             buttonImageUrl="bg-[url(/SubmitMoveButton.svg)]"
             onClick={() => {
-              console.log('Submit Move');
+              console.log("Submit Move");
             }}
           />
         </div>
@@ -52,7 +54,7 @@ export const VotingPanel: FC = () => {
           <RetroButton
             buttonImageUrl="bg-[url(/BuyPowerButton.svg)]"
             onClick={() => {
-              console.log('Buy Power');
+              setShowGameDetails(true);
             }}
           />
         </div>
@@ -60,7 +62,7 @@ export const VotingPanel: FC = () => {
           <RetroButton
             buttonImageUrl="bg-[url(/ConnectWalletButton.svg)]"
             onClick={() => {
-              console.log('Connect Your Wallet');
+              console.log("Connect Your Wallet");
             }}
           />
         </div>
