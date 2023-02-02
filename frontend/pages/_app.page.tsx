@@ -1,19 +1,19 @@
-import '../styles/globals.css';
-import '@rainbow-me/rainbowkit/styles.css';
+import "../styles/globals.css";
+import "@rainbow-me/rainbowkit/styles.css";
 
-import type { AppProps } from 'next/app';
-import { ArcadeMachineContextProvider } from '../contexts/ArcadeMachineContext';
-import { MediaQueryContextProvider } from '../contexts/MediaQueryContext';
-import { ChessGameContextProvider } from '../contexts/ChessGameContext';
-import { BettingContextProvider } from '../contexts/BettingContext';
+import type { AppProps } from "next/app";
+import { ArcadeMachineContextProvider } from "../contexts/ArcadeMachineContext";
+import { MediaQueryContextProvider } from "../contexts/MediaQueryContext";
+import { ChessGameContextProvider } from "../contexts/ChessGameContext";
+import { BettingContextProvider } from "../contexts/BettingContext";
 
-import { getDefaultWallets, RainbowKitProvider } from '@rainbow-me/rainbowkit';
-import { configureChains, createClient, WagmiConfig } from 'wagmi';
-import { goerli, hardhat } from 'wagmi/chains';
-import { alchemyProvider } from 'wagmi/providers/alchemy';
-import { publicProvider } from 'wagmi/providers/public';
+import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit";
+import { configureChains, createClient, WagmiConfig } from "wagmi";
+import { goerli, hardhat } from "wagmi/chains";
+import { alchemyProvider } from "wagmi/providers/alchemy";
+import { publicProvider } from "wagmi/providers/public";
 
-const ALCHEMY_API_KEY = process.env.ALCHEMY_API_KEY || '0xkey';
+const ALCHEMY_API_KEY = process.env.ALCHEMY_API_KEY || "0xkey";
 
 const { chains, provider } = configureChains(
   [goerli, hardhat],
@@ -21,17 +21,17 @@ const { chains, provider } = configureChains(
     // Public provider is prioritized in dev
     // Alchemy provider is prioritized in prod
     publicProvider({
-      priority: process.env.NODE_ENV === 'production' ? 1 : 0,
+      priority: process.env.NODE_ENV === "production" ? 1 : 0,
     }),
     alchemyProvider({
       apiKey: ALCHEMY_API_KEY,
-      priority: process.env.NODE_ENV === 'production' ? 0 : 1,
+      priority: process.env.NODE_ENV === "production" ? 0 : 1,
     }),
   ]
 );
 
 const { connectors } = getDefaultWallets({
-  appName: 'leela-vs-world',
+  appName: "leela-vs-world",
   chains,
 });
 

@@ -1,88 +1,113 @@
-import Image from 'next/image';
-import { ArcadeHeader } from '../pageElements/arcadeGame/ArcadeHeader';
-import { NextMoveLeaderboard } from '../pageElements/arcadeGame/NextMoveLeaderboard';
-import { NextMoveTimer } from '../pageElements/arcadeGame/NextMoveTimer';
-import { PrizePool } from '../pageElements/arcadeGame/PrizePool';
-import { ChessBoard } from '../pageElements/arcadeGame/ChessBoard/ChessBoard';
-import { VotingPanel } from '../pageElements/arcadeGame/votingPanel/VotingPanel';
-import { useArcadeMachineContext } from '../contexts/ArcadeMachineContext';
-import { GameDetails } from '../pageElements/gamePopups/GameDetails';
-import { GameInstructions } from '../pageElements/gamePopups/GameInstructions';
-// import { ArcadeControls } from '../pageElements/arcadeGame/ArcadeControls';
-// import { CreatedByModulousLabs } from '../pageElements/arcadeGame/CreatedByModulousLabs';
-import { useMediaQueryContext } from '../contexts/MediaQueryContext';
-import { ScreenTooSmall } from '../pageElements/ScreenTooSmall';
-import { AnimatePresence } from 'framer-motion';
+import Image from "next/image";
+import { useArcadeMachineContext } from "../contexts/ArcadeMachineContext";
+import { useMediaQueryContext } from "../contexts/MediaQueryContext";
+import { ScreenTooSmall } from "../pageElements/ScreenTooSmall";
+import { motion, AnimatePresence, Variants } from "framer-motion";
+import { useState } from "react";
+import { useRouter } from "next/router";
+import clsx from "clsx";
+import { FadingPageWrapper } from "../components/pageWrappers/FadingPageWrapper";
 
-export default function Home() {
+const DARKEN_TIME = 3.5;
+const LOADING_TIME = 3;
+
+const BackgroundImageVariants: Variants = {
+  initial: {
+    scale: 1,
+    opacity: 1,
+  },
+  zoom: {
+    scale: 2,
+    opacity: 0,
+    transition: {
+      repeat: Infinity,
+      scale: {
+        duration: 2,
+      },
+      opacity: {
+        duration: DARKEN_TIME,
+      },
+    },
+  },
+};
+
+const LoadingTextVariants: Variants = {
+  hidden: {
+    opacity: 0.2,
+    scale: 1,
+  },
+  visible: {
+    opacity: 1,
+    scale: 0.98,
+    transition: {
+      repeat: Infinity,
+      duration: 0.75,
+      repeatType: "reverse",
+    },
+  },
+};
+
+export default function HomePage() {
+  const router = useRouter();
+
   const { isMobile } = useMediaQueryContext();
   const { showGameInstructions, showGameDetails } = useArcadeMachineContext();
+
+  const [startNavigationSequence, setStartNavigationSequence] = useState(false);
+  const [showLoadingText, setShowLoadingText] = useState(false);
+
+  const navigateToGame = () => {
+    if (!startNavigationSequence) {
+      setStartNavigationSequence(true);
+
+      const showLoadingTimeout = setTimeout(() => {
+        setShowLoadingText(true);
+      }, DARKEN_TIME * 1000);
+
+      const changeRouteTimeout = setTimeout(() => {
+        router.push("/chess");
+      }, (DARKEN_TIME + LOADING_TIME) * 1000);
+
+      return () => {
+        clearTimeout(showLoadingTimeout);
+        clearTimeout(changeRouteTimeout);
+      };
+    }
+  };
 
   if (isMobile) {
     return <ScreenTooSmall />;
   }
 
   return (
-    <div className="flex h-screen flex-row items-end justify-center bg-off-black">
-      <svg className="h-full w-full object-contain" viewBox="0 0 1920 1080">
-        <foreignObject width="1920" height="1080" alignmentBaseline="baseline">
-          <Image
-            priority
-            fill
-            src="/ArcadeMachine.gif"
-            alt="arcade-machine"
-            className="pointer-events-none z-10 object-contain"
-          />
-          <div className="z-0 -ml-[25px]">
-            <div className="mx-auto mt-0 h-[230px] w-[1375px]">
-              <ArcadeHeader />
-            </div>
-
-            <div className="relative mx-auto mt-[65px] grid h-[590px] w-[1025px] grid-cols-2 gap-x-[50px] px-[30px] py-[30px]">
-              <AnimatePresence>
-                {!showGameInstructions && showGameDetails && (
-                  <div className="absolute top-0 bottom-0 left-0 right-0 z-50 flex flex-row items-center justify-center rounded-3xl bg-black bg-opacity-70">
-                    <GameDetails />
-                  </div>
-                )}
-                {showGameInstructions && (
-                  <div className="absolute top-0 bottom-0 left-0 right-0 z-50 flex flex-row items-center justify-center bg-black bg-opacity-70">
-                    <GameInstructions />
-                  </div>
-                )}
-              </AnimatePresence>
-
-              <div className="col-span-1 flex flex-col justify-between">
-                <div className="h-[96px]">
-                  <NextMoveTimer />
-                </div>
-                <div className="h-[425px] w-[425px] self-end">
-                  <ChessBoard />
-                </div>
-              </div>
-              <div className="col-span-1 flex flex-col justify-between">
-                <div className="flex h-[91px]">
-                  <PrizePool />
-                </div>
-                <div className="flex h-[193px]">
-                  <NextMoveLeaderboard />
-                </div>
-                <div className="flex h-[216px]">
-                  <VotingPanel />
-                </div>
-              </div>
-            </div>
-
-            {/* <div className="mx-auto mt-[20px] h-[70px] w-[1475px]">
-            <CreatedByModulousLabs />
-          </div>
-
-          <div className="mx-auto mt-[-90px] h-[220px] w-[1375px]">
-            <ArcadeControls />
-          </div> */}
-          </div>
-        </foreignObject>
-      </svg>
+    <div
+      onClick={navigateToGame}
+      className="flex h-screen cursor-pointer flex-row items-center justify-center overflow-hidden bg-off-black"
+    >
+      <motion.div
+        variants={BackgroundImageVariants}
+        initial="initial"
+        animate={startNavigationSequence ? "zoom" : "initial"}
+        className="fixed z-0 h-full w-full"
+      >
+        <Image
+          src="/AllArcadeMachines.gif"
+          alt=""
+          fill
+          className="object-cover"
+        />
+      </motion.div>
+      <motion.div
+        variants={LoadingTextVariants}
+        initial="hidden"
+        animate={showLoadingText ? "visible" : "hidden"}
+        className={clsx(
+          "text-3xl text-off-white",
+          showLoadingText ? "block" : "hidden"
+        )}
+      >
+        Firing up Leela Vs World 🎮
+      </motion.div>
     </div>
   );
 }
